@@ -1,0 +1,24 @@
+{
+  "name": "oneshot",
+  "description": "Audit, fix, and gate an iOS or Android app for App Store and Google Play submission so it is approved on the first try. Deterministic scanner, researched rejection knowledge base for both stores, eight specialist review agents, and a GO/NO-GO submission gate.",
+  "version": "1.0.0",
+  "author": {
+    "name": "oneshot contributors"
+  },
+  "homepage": "https://github.com/Sante123/oneshot",
+  "repository": "https://github.com/Sante123/oneshot",
+  "license": "MIT",
+  "keywords": [
+    "app-store",
+    "google-play",
+    "app-review",
+    "ios",
+    "android",
+    "compliance",
+    "privacy-manifest",
+    "data-safety",
+    "react-native",
+    "expo",
+    "flutter"
+  ]
+}

@@ -1,0 +1,50 @@
+# Copy this into YOUR app's repository to gate releases on store compliance.
+name: App Store compliance gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the app
+        uses: actions/checkout@v4
+
+      - name: Check out oneshot
+        uses: actions/checkout@v4
+        with:
+          repository: Sante123/oneshot
+          path: .oneshot-tool
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Build first so the scanner can see the merged manifest, the built Info.plist,
+      # and the .aab. A source-only audit cannot verify 16 KB alignment, ABIs, or the
+      # build SDK version.
+      # - run: ./gradlew bundleRelease
+      # - run: ./gradlew :app:processReleaseManifest
+
+      - name: Audit
+        run: |
+          python3 .oneshot-tool/skills/store-compliance/scripts/oneshot.py \
+            audit --path . --format json --out oneshot-report.json
+          python3 .oneshot-tool/skills/store-compliance/scripts/oneshot.py \
+            audit --path . --out oneshot-report.md
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oneshot-report
+          path: |
+            oneshot-report.md
+            oneshot-report.json
+
+      - name: Gate
+        run: |
+          python3 .oneshot-tool/skills/store-compliance/scripts/oneshot.py \
+            gate --report oneshot-report.json

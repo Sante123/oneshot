@@ -1,0 +1,13 @@
+android {
+    compileSdk 36
+    defaultConfig {
+        applicationId "app.ledgerly"
+        minSdk 26
+        targetSdk 36
+        versionCode 42
+    }
+    buildTypes { release { minifyEnabled true; shrinkResources true } }
+}
+dependencies {
+    implementation 'com.android.billingclient:billing:8.0.0'
+}

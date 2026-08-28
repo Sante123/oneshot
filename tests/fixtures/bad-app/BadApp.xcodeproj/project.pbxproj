@@ -1,0 +1,6 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	objectVersion = 77;
+	/* minimal placeholder so stack detection sees an Xcode project */
+}

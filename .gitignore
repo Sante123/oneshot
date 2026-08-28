@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build output from the Android test fixtures
+.gradle/
+tests/fixtures/*/android/build/
+tests/fixtures/*/android/app/build/
+tests/fixtures/*/ios/build/
+
+# Release archives — build these, attach them to a Release, don't commit them
+*.zip
+
+# Generated audit output
+oneshot-report.md
+oneshot-report.json
+review-notes.md
+play-app-access.md
+submission-checklist.md
+data-safety.md
+
+# Project-local waivers (waivers.example.yaml IS tracked)
+.oneshot/waivers.yaml
+
+# Installer bookkeeping
+.oneshot-installed.json

@@ -1,0 +1,19 @@
+# Copy to .oneshot/waivers.yaml to suppress a HIGH finding.
+#
+# Rules:
+#   - A waiver requires a written `reason` explaining why the finding does not apply.
+#   - An expired waiver is not a waiver.
+#   - BLOCKER findings can NEVER be waived.
+#   - Silence is not a waiver — omitting a rule does nothing.
+
+- rule_id: APPLE-2.5.4-BGMODES
+  reason: "The audio background mode is used by the podcast player at Player/AudioSession.swift:120; the scanner's pattern misses our wrapper."
+  approved_by: patrick
+  date: "2026-08-19"
+  expires: "2026-11-19"
+
+- rule_id: APPLE-4.8-SIWA
+  reason: "Enterprise app; users authenticate with an existing Okta account, which is the 4.8 education/enterprise exemption."
+  approved_by: patrick
+  date: "2026-08-19"
+  expires: "2027-02-19"

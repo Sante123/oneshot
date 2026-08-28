@@ -1,0 +1,22 @@
+{
+  "name": "oneshot",
+  "owner": {
+    "name": "oneshot contributors",
+    "url": "https://github.com/Sante123/oneshot"
+  },
+  "metadata": {
+    "description": "App Store and Google Play submission compliance — get approved on the first try.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "oneshot",
+      "source": "./",
+      "description": "Audit, fix, and gate an iOS or Android app for App Store and Google Play submission. Deterministic scanner + rejection knowledge base + 8 specialist review agents + GO/NO-GO gate.",
+      "version": "1.0.0",
+      "category": "mobile",
+      "keywords": ["app-store", "google-play", "app-review", "ios", "android", "compliance"],
+      "license": "MIT"
+    }
+  ]
+}

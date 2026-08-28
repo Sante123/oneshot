@@ -1,0 +1,6 @@
+PODS:
+  - FBSDKCoreKit (17.0.0)
+  - Firebase/Analytics (11.4.0)
+  - Google-Mobile-Ads-SDK (11.9.0)
+DEPENDENCIES:
+  - Firebase/Analytics

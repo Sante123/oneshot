@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  PrivacyInfo.xcprivacy — starting template.
+
+  HOW TO USE
+  1. Copy to your app target (and to EVERY app extension and first-party framework
+     that touches a Required Reason API). Add it to "Copy Bundle Resources".
+  2. Delete every NSPrivacyAccessedAPITypes entry you do NOT use. Declaring a
+     category you don't touch is over-declaration; declaring one you do touch
+     without a reason code fails upload with ITMS-91053.
+  3. Fill NSPrivacyCollectedDataTypes to match your App Store Connect
+     App Privacy label exactly.
+  4. If anything tracks, set NSPrivacyTracking to true and list EVERY tracking
+     domain — those domains are blocked when the user denies ATT.
+  5. Verify with Xcode: Product > Archive > Generate Privacy Report.
+
+  VALID REASON CODES (exact strings — inventing one fails the upload)
+
+  NSPrivacyAccessedAPICategoryFileTimestamp
+    DDA9.1  display file timestamps to the person using the device
+    C617.1  files inside the app container, app group container, or CloudKit container
+    3B52.1  timestamp of a file the user specifically granted access to
+    0A2A.1  third-party SDK acting on behalf of the app it is bundled in
+
+  NSPrivacyAccessedAPICategorySystemBootTime
+    35F9.1  measure elapsed time between in-app events
+    8FFB.1  calculate absolute timestamps for internal, user-initiated events
+
+  NSPrivacyAccessedAPICategoryDiskSpace
+    85F4.1  display disk space to the person using the device
+    E174.1  check for sufficient space before writing
+    7D9E.1  include in a user-initiated bug report
+
+  NSPrivacyAccessedAPICategoryActiveKeyboards
+    3EC4.1  custom keyboard app, own keyboards only
+    54BD.1  customize the UI for the user's keyboard languages, no off-device transmission
+
+  NSPrivacyAccessedAPICategoryUserDefaults
+    CA92.1  access information stored by the app itself
+    1C8F.1  app-group defaults shared with the app's own extensions or apps
+    AC6B.1  holders of the com.apple.developer.web-browser entitlement
+    C56D.1  third-party SDK providing defaults access on behalf of the app
+-->
+<plist version="1.0">
+<dict>
+	<!-- Set to true ONLY if the app or an embedded SDK tracks as defined by ATT. -->
+	<key>NSPrivacyTracking</key>
+	<false/>
+
+	<!-- Every domain that receives tracking traffic. Blocked when ATT is denied. -->
+	<key>NSPrivacyTrackingDomains</key>
+	<array>
+		<!-- <string>googleads.g.doubleclick.net</string> -->
+	</array>
+
+	<!-- Must match the App Privacy nutrition label in App Store Connect. -->
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array>
+		<!--
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>NSPrivacyCollectedDataTypeEmailAddress</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<true/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+			</array>
+		</dict>
+		-->
+	</array>
+
+	<!-- DELETE any category your code does not actually use. -->
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>E174.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
