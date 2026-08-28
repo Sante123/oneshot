@@ -1,6 +1,6 @@
 # oneshot
 
-**Get your iOS and Android app approved on the first submission.**
+**Catch the issues that get iOS and Android apps rejected before you submit.**
 
 `oneshot` is an open-source compliance toolkit for the Apple App Store and Google Play. It
 combines a deterministic scanner, a researched knowledge base of every rejection-causing
